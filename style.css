@@ -11,3 +11,52 @@ body {
     background: #ffffff;
     flex-direction: column;
 }
+
+.main {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: transform 0.2s;
+    width: 600px;
+}
+
+.main:hover{
+    transform: scale(1.05);
+}
+
+.sammy {
+    margin: 0;
+    width: 70%;
+    padding: 0px 25px 40px;
+    position: relative;
+    left: 63px;
+}
+
+.header h2 {
+    font-size: 30px;
+    color: #01940b;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.price-input-container {
+    width: 100%;
+}
+
+.price-input, .price-field {
+    display: flex;
+    margin-bottom: 22px;
+}
+
+.price-field span {
+    margin-right: 10px;
+    margin-top: 6px;
+    font-size: 17px;
+}
+
+.price-field input {
+    flex: 1;
+    height: 35px;
+}
