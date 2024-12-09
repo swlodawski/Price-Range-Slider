@@ -15,10 +15,34 @@ for( let i = 0; i < priceInputvalue.length; i++ ) {
             priceInputvalue[0].value = 0;
             minp = 0;
         }
+
         if(maxp < 10000) {
             alert("maximum value cannot be greater than 10000");
             priceInputvalue[1].value = 10000;
             maxp = 10000;
         }
-    })
+
+        if(minp > maxp - priceGap) {
+            priceInputvalue[0].value = maxp - priceGap;
+            minp = maxp - priceGap;
+
+            if(minp < 0) {
+                priceInputvalue[0].value = 0;
+                minp = 0;
+            }
+        }
+
+        if(diff >= priceGap && maxp <= rangeInputvalue[1].max) {
+            if(e.target.className === "min-input") {
+                rangeInputvalue[0].value = minp;
+                let value1 = rangeInputvalue[0].max;
+                rangevalue.style.left = `${(minp / value1) * 100}%`
+            } else {
+                rangeInputvalue[1].value = maxp;
+                let value2 = rangeInputvalue[1].max;
+                rangevalue.style.right = `${(maxp / value2) * 100}%`
+            }
+        }
+    });
+    
 }
