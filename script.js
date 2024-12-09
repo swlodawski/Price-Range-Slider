@@ -44,5 +44,24 @@ for( let i = 0; i < priceInputvalue.length; i++ ) {
             }
         }
     });
-    
+    for(let i = 0; i < rangeInputvalue.length; i++) {
+        rangeInputvalue[i].addEventListener("input", e => {
+            let minVal = parseInt(rangeInputvalue[0].value);
+            let maxVal = parseInt(rangeInputvalue[1].value);
+
+            let diff = maxVal - minVal
+
+            if(diff < priceGap) {
+                if(e.target.className == "min-range") {
+                    rangeInputvalue[0].value = maxVal - priceGap;
+                } else {
+                    rangeInputvalue[1].value = minVal - priceGap;
+                }
+            } else {
+                priceInputvalue[0].value = minVal;
+                priceInputvalue[1].value = maxVal;
+                rangeInputvalue.style.left = `${(minVal / rangeInputvalue[0].max) *100}%`;
+            }
+        });
+    }
 }
